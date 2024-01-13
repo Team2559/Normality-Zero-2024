@@ -11,23 +11,25 @@
 
 #include "RobotContainer.h"
 
-class Robot : public frc::TimedRobot {
- public:
-  void RobotInit() override;
-  void RobotPeriodic() override;
-  void DisabledInit() override;
-  void DisabledPeriodic() override;
-  void AutonomousInit() override;
-  void AutonomousPeriodic() override;
-  void TeleopInit() override;
-  void TeleopPeriodic() override;
-  void TestPeriodic() override;
-  void SimulationInit() override;
-  void SimulationPeriodic() override;
+class Robot : public frc::TimedRobot
+{
+public:
+  void RobotInit() noexcept override;
+  void RobotPeriodic() noexcept override;
+  void DisabledInit() noexcept override;
+  void DisabledPeriodic() noexcept override;
+  void DisabledExit() noexcept override;
+  void AutonomousInit() noexcept override;
+  void AutonomousPeriodic() noexcept override;
+  void AutonomousExit() noexcept override;
+  void TeleopInit() noexcept override;
+  void TeleopPeriodic() noexcept override;
+  void TeleopExit() noexcept override;
+  void TestInit() noexcept override;
+  void TestPeriodic() noexcept override;
+  void TestExit() noexcept override;
 
- private:
-  // Have it empty by default so that if testing teleop it
-  // doesn't have undefined behavior and potentially crash.
+private:
   std::optional<frc2::CommandPtr> m_autonomousCommand;
 
   RobotContainer m_container;
